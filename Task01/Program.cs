@@ -3,20 +3,20 @@ Console.WriteLine("Введите натуральное число M: ");
 int M = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите натуральное число N: ");
 int N = int.Parse(Console.ReadLine()!);
-int sum = 0;
 
-SumNumbers(M, N);
 
-void SumNumbers(int M, int N)
+
+int SumNumbers(int M, int N)
 {
-    if (M > N)
+    int sum = M;
+    if (M == N)
+        return 0;
+    else
     {
-        Console.WriteLine($"Сумма натуральных элементов в промежутке от M до N: {sum}"); 
-        return;
+        M++;
+        sum = M + SumNumbers(M, N);
+        return sum;
     }
-    
-    sum = sum + M;
-    M++;
-    SumNumbers(M, N);
-
 }
+
+Console.Write(SumNumbers(M - 1, N));
